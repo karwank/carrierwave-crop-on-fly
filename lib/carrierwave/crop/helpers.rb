@@ -54,7 +54,7 @@ module CarrierWave
           model_name = self.object.class.name.demodulize.underscore
 
           output = ActiveSupport::SafeBuffer.new
-          [:crop_x ,:crop_y, :crop_w, :crop_h].each do |attribute|
+          [:crop_x ,:crop_y, :crop_w, :crop_h, :output_w, :output_h].each do |attribute|
             output << @template.hidden_field_tag("#{model_name}[#{attachment}][#{attribute}]", nil, id: "#{model_name}_#{attachment}_#{attribute}")
           end
 

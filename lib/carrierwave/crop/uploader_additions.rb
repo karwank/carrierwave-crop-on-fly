@@ -8,6 +8,9 @@ module CarrierWave
       def crop(width = nil, height = nil)
         raise_missing_processor  unless defined?(CarrierWave::MiniMagick) || defined?(CarrierWave::RMagick)
 
+        width ||= output_w
+        height ||= output_h
+
         proc = ->(original_height, original_width) do
           if crop_w.present? && crop_h.present?
             w = crop_w

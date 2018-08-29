@@ -1,7 +1,7 @@
 if defined? CarrierWave::Uploader::Base
   class CarrierWave::Uploader::Base
 
-    attr_accessor :crop_x, :crop_y, :crop_w, :crop_h
+    attr_accessor :crop_x, :crop_y, :crop_w, :crop_h, :output_w, :output_h
 
     alias_method :old_cache!, :cache!
 
@@ -11,6 +11,8 @@ if defined? CarrierWave::Uploader::Base
         self.crop_y = file.crop_y
         self.crop_w = file.crop_w
         self.crop_h = file.crop_h
+        self.output_w = file.output_w
+        self.output_h = file.output_h
       end
 
       old_cache!(file)

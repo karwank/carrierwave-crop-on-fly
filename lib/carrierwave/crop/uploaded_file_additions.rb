@@ -9,6 +9,8 @@ class ActionDispatch::Http::UploadedFile
     @crop_y = parameters[:crop_y]
     @crop_w = parameters[:crop_w]
     @crop_h = parameters[:crop_h]
+    @crop_w = parameters[:output_w]
+    @crop_h = parameters[:output_h]
 
     old_initialize(hash)
   end
